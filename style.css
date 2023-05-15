@@ -190,11 +190,11 @@ margin-bottom: 1.4rem;
 
 .whyme-tiles{
     display: grid;
-    grid-template-columns: repeat(var(--columns), 25px);
-    grid-template-rows: repeat(var(--rows), 25px);
+    grid-template-columns: repeat(var(--columns), 50px);
+    grid-template-rows: repeat(var(--rows), 50px);
     z-index: 10;
     gap: 1px;
-    transform: translateX(-19.5px) translateY(-19.5px);
+    transform:  translateY(-16px);
     
 }
 
@@ -236,6 +236,7 @@ transition: 1s;
     pointer-events: none;
     text-transform: uppercase;
     transition: 1s;
+    /* text-shadow: 0 0 1px black; */
 }
 
 

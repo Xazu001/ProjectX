@@ -61,7 +61,7 @@ const createTiles = (quantity) => {
 const createGrid = () => {
     wrapper.innerHTML = "";
 
-    const size = wrapper.clientWidth > 1000 ? 100 : 25;
+    const size = wrapper.clientWidth > 1000 ? 100 : 50;
 
     columns = Array.from(document.querySelectorAll(".whyme-item")).map(i => Math.floor(i.clientWidth / size + 3))[0];
     rows = Array.from(document.querySelectorAll(".whyme-item")).map(i => Math.floor(i.clientHeight / size + 3))[0];
