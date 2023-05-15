@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div id="nav-main">
+        <div id="nav-left">
+          <a href="#aboutme">X</a>
+        </div>
+        <div id="nav-right">
+          <ul>
+            <li><a href="#aboutme">about me</a></li>
+            <li><a href="">skills</a></li>
+            <li><a href="">road</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="lineUnderNavMain"><div class="lineUnderNav"></div></div>
+    </nav>
+    <section id="topSection">
+      <div id="topSectionBG">
+        <div class="light l1"></div>
+        <div class="light l2"></div>
+        <div class="light l3"></div>
+        <div class="light l4"></div>
+        <div class="light l5"></div>
+        <div class="light l6"></div>
+        <div class="light l7"></div>
+        <div class="light l8"></div>
+        <div class="light l9"></div>
+      </div>
+      <div id="topSectionMain">
+        <h1 data-value="I MAKE THINGS">I MAKE THINGS</h1>
+      </div>
+    </section>
+    <main>
+      <section id="aboutme">
+        <section id="aboutme-main">
+          <div id="aboutme-left">
+            <h3>who am i?</h3>
+            <p>
+              Hi! My name is Kacper, i'm 19 years old starting frontend
+              developer from Poland. My dream is to get my first job in this
+              profession. This page is a test page and is not yet filled with
+              useful information. You can check the "skills" tab. There I show
+              some of the skills that I have mastered.
+            </p>
+          </div>
+          <div id="aboutme-right">
+            <h2>
+              developer!<br />
+              front-end
+            </h2>
+          </div>
+        </section>
+        <section id="whyme">
+          <div id="whyme-left">
+            <h3>why you should pick me?</h3>
+            <p>There are some reasons.</p>
+          </div>
+          <div id="whyme-right">
+            <div class="whyme-item">
+              <div class="whyme-background hide">
+                <h5>Nigger</h5>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Architecto, aliquid sunt sequi error nemo eos.
+                </p>
+              </div>
+              <div class="whyme-tiles"></div>
+              <div class="whyme-text"><h4>COMUNICATIVE</h4></div>
+            </div>
+            <div class="whyme-item">
+              <div class="whyme-background hide">
+                <h5>Nigger</h5>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Architecto, aliquid sunt sequi error nemo eos.
+                </p>
+              </div>
+              <div class="whyme-tiles"></div>
+              <div class="whyme-text"><h4>HELPFUL</h4></div>
+            </div>
+            <div class="whyme-item">
+              <div class="whyme-background hide">
+                <h5>Nigger</h5>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Architecto, aliquid sunt sequi error nemo eos.
+                </p>
+              </div>
+              <div class="whyme-tiles"></div>
+              <div class="whyme-text"><h4>persistent</h4></div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script defer>
+      function onLoad() {
+        {
+          {
+            const letters = "XYZ";
+            let intervalLetters = null;
+            const heroH1 = document.querySelector("#topSectionMain h1");
+            let iteration = 0;
+            clearInterval(intervalLetters);
+
+            intervalLetters = setInterval(() => {
+              heroH1.innerText = heroH1.innerText
+                .split("")
+                .map((letter, index) => {
+                  if (index < iteration) {
+                    return heroH1.dataset.value[index];
+                  }
+
+                  return letters[Math.floor(Math.random() * 3)];
+                })
+                .join("");
+
+              if (iteration >= heroH1.dataset.value.length) {
+                clearInterval(intervalLetters);
+              }
+
+              iteration += 1 / 3;
+            }, 40);
+          }
+        }
+      }
+      onLoad();
+    </script>
+  </body>
+</html>
