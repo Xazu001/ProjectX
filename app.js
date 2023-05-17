@@ -28,7 +28,11 @@ const handleOnClickTiles = (tile, index) => {
     toggle(grid);
     // grid.querySelectorAll(".whyme-text").forEach(i => i.classList.add("hide"));
     tile.parentElement.parentElement.children[2].classList.toggle("hide");
+    // setTimeout(() => {
+    //     tile.parentElement.parentElement.children[0].classList.toggle("hide");
+    // }, 1000);
     tile.parentElement.parentElement.children[0].classList.toggle("hide");
+
 
     anime({
         targets: grid.children,

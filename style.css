@@ -4,16 +4,25 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: 'gatha';
+    src: url("assets/zt-gatha.semibold.otf") format("opentype");
+}
+
+
 :root{
     font-size: 10px;
     --columns: 0;
     --rows: 0;
-    --mainwb-color1: rgba(0,75,255, 1);
+    /* --mainwb-color1: rgba(255,0 ,50, 1); */
+    --mainwb-color1: rgba(0,75 ,255, 1);
     --mainwb-color2: #242424;
     --mainwb-color3: #1B1B1B;
     --mainwb-color4: #101010;
     --mainwb-color5: white;
 }
+
+
 
 
 /* nav and top section */
@@ -27,8 +36,10 @@ nav{
     align-items: center;
     padding: 0 48px;
     height: 90px;
-    background-color: #1B1B1B;
+    background-color: var(--mainwb-color4);
     opacity: 1;
+    font-family: 'gatha';
+    
 }
 
 
@@ -41,15 +52,19 @@ a{
 }
 
 #nav-left a{
-    font-size: 68px;
-    color: var(--mainwb-color1);
+    font-size: 88px;
+    /* color: var(--mainwb-color1); */
+    color: var(--mainwb-color4);
+    -webkit-text-stroke:  1px var(--mainwb-color1);
 }
 
 #nav-right a{
-    color: var(--mainwb-color1);
+    color: var(--mainwb-color4);
+    -webkit-text-stroke:  1px var(--mainwb-color1);
+    /* color: transparent; */
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 34px;
     margin: 12px;
 }
 
@@ -93,10 +108,11 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--mainwb-color1);
+    color: transparent;
     font-size: 9rem;
     z-index: 10;
-    text-shadow: 0 0 10px black;
+    font-family: 'gatha';
+    -webkit-text-stroke: 4px var(--mainwb-color1);
 }
 
 #topSectionMain h1{
@@ -111,7 +127,7 @@ html{
 }
 
 body{
-    background-color: var(--mainwb-color3);
+    background-color: var(--mainwb-color4);
     color: white;
     font-family: sans-serif;
 }
@@ -127,11 +143,15 @@ body{
 
 #aboutme-left{
     max-width: 50%;
+    color: var(--mainwb-color5);
 }
 #aboutme-left h3{
     font-size: 6rem;
     text-transform: uppercase;
     margin-bottom: 1.4rem;
+    font-family: 'gatha';
+    color: transparent;
+    -webkit-text-stroke: 2px var(--mainwb-color1);
 }
 #aboutme-left p{
     font-size: 3.4rem;
@@ -142,25 +162,78 @@ body{
     text-align: justify;
     writing-mode: vertical-lr;
     padding-left: 48px;
-    
+    font-family: 'gatha';
+    color: transparent;
+    -webkit-text-stroke: 2px var(--mainwb-color1);
 }
 
 #aboutme-right h2{
-    font-size: 5.5rem;
+    font-size: 6rem;
     text-transform: uppercase;
     transition: 1s;
+}
+
+#whyme-left span{
+    font-family: 'gatha';
+    font-size: 7.5rem;
+    color: transparent;   
+    -webkit-text-stroke: 2px var(--mainwb-color1) ;
+}
+
+/* me */
+#me{
+    padding: 190px;
+    position: relative;
+    width: 100%;
+}
+
+.me-x{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.me-x h2{
+font-size: 30rem;
+scale: 1.6 2;
+font-family: 'gatha';
+color: transparent;
+-webkit-text-stroke: 5px var(--mainwb-color1);
+}
+
+.me-links{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    text-align: left;
+}
+
+.me-links i{
+    font-size: 5.5rem;
+    color: white;
+    margin-left: 15%;
 }
 
 
 /* why me */
 #whyme{
-    padding: 200px 4%;
+    padding: 150px 4%;
     display: flex;
 }
 
 #whyme-left{
     width: 33%;
-    color: var(--mainwb-color1);
+    color: white;
 }
 
 #whyme-left h3{
@@ -199,7 +272,7 @@ margin-bottom: 1.4rem;
 }
 
 .tile{
-    background-color: var(--mainwb-color1);
+    background-color: var(--mainwb-color3);
 }
 
 .tile:hover{
@@ -214,7 +287,8 @@ width: 100%;
 height: 100%;
 text-align: left;
 padding: 3rem;
-transition: 1s;
+/* transition: 1s; */
+background-color: var(--mainwb-color3);
 }
 
 .whyme-background h5{
@@ -226,17 +300,45 @@ transition: 1s;
     font-size: 1.8rem;
 }
 
+.whyme-curtain{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(80, 80, 80, 1) ;
+    border-radius: 50px;
+}
+
 .whyme-text{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3.5rem;
-    color: var(--mainwb-color3);
+    font-size: 4rem;
+    color: transparent;
     pointer-events: none;
     text-transform: uppercase;
     transition: 1s;
-    /* text-shadow: 0 0 1px black; */
+    -webkit-text-stroke: 1px var(--mainwb-color1);
+    font-family: 'gatha';
+}
+
+/* skills */
+#skills-main{
+    display: flex;
+    padding: 200px 4%;
+}
+
+.skills-left{
+    width: 50%;
+}
+
+.skills-right{
+padding-left: 48px;
+}
+
+.skills-right h3{
+    font-size: 6rem;
+    color: var(--mainwb-color5);
 }
 
 
