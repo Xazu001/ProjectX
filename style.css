@@ -69,8 +69,8 @@ a{
     border: 1px var(--mainwb-color5) solid;
     padding: 12px;
     font-size: 2.6rem !important;
-    color: transparent !important;
-    -webkit-text-stroke: 1px var(--mainwb-color1); 
+    color: var(--mainwb-color1) !important;
+    /* -webkit-text-stroke: 1px var(--mainwb-color1);  */
 }
 
 .lineUnderNavMain{
