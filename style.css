@@ -189,7 +189,6 @@ body{
 #me{
     padding: 190px;
     position: relative;
-    width: 100%;
 }
 
 .me-x{
@@ -220,7 +219,7 @@ color: transparent;
     height: 100%;
     width: 100%;
     justify-content: center;
-    text-align: left;
+    align-items: center;
 }
 
 .box-icons{
