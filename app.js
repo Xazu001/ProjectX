@@ -66,9 +66,9 @@ const createGrid = () => {
     wrapper.innerHTML = "";
 
     const size = wrapper.clientWidth > 1000 ? 100 : 50;
-
-    columns = Array.from(document.querySelectorAll(".whyme-item")).map(i => Math.floor(i.clientWidth / size + 3))[0];
-    rows = Array.from(document.querySelectorAll(".whyme-item")).map(i => Math.floor(i.clientHeight / size + 3))[0];
+    rows = 5;
+    columns = Array.from(document.querySelectorAll(".whyme-item")).map(i => Math.floor(i.clientWidth / size + 1))[0];
+    // rows = Array.from(document.querySelectorAll(".whyme-item")).map(i => Math.floor(i.clientHeight / size + 3))[0];
 
     wrapper.forEach(e => e.style.setProperty("--columns", columns));
     wrapper.forEach(e => e.style.setProperty("--rows", rows));

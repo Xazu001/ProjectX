@@ -59,13 +59,18 @@ a{
 }
 
 #nav-right a{
-    color: var(--mainwb-color4);
-    -webkit-text-stroke:  1px var(--mainwb-color1);
-    /* color: transparent; */
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 34px;
+    color: var(--mainwb-color5);
+    /* text-transform: uppercase; */
+    font-size: 2.2rem;
     margin: 12px;
+}
+
+.getInTouch{
+    border: 1px var(--mainwb-color5) solid;
+    padding: 12px;
+    font-size: 2.6rem !important;
+    color: transparent !important;
+    -webkit-text-stroke: 1px var(--mainwb-color1); 
 }
 
 .lineUnderNavMain{
@@ -129,7 +134,7 @@ html{
 body{
     background-color: var(--mainwb-color4);
     color: white;
-    font-family: sans-serif;
+    font-family: 'gatha', sans-serif;
 }
 
 /* About me */
@@ -218,10 +223,17 @@ color: transparent;
     text-align: left;
 }
 
-.me-links i{
+.box-icons{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;
+    width: 60px;
+}
+
+.box-icons a{
     font-size: 5.5rem;
     color: white;
-    margin-left: 15%;
+    margin-top: 30px;
 }
 
 
