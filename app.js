@@ -81,3 +81,51 @@ const createGrid = () => {
 createGrid();
 
 window.onresize = () => createGrid();
+
+// skills progress
+// const skillsProValue = document.querySelectorAll(".skills-pro").forEach(i => { i.getAttribute("data-value") });
+// const skillsProValue = document.querySelector(".skills-pro").dataset.value;
+// const skillsProValue = document.querySelectorAll(".skills-pro")[0].getAttribute("data-value");
+// const skillsProValue = document.querySelectorAll(".skills").getAttribute("data-value");
+// document.querySelectorAll(".skills-pro")[1].style.setProperty("background", "conic-gradient(var(--mainwb-color1)" + deg, var(--mainwb - color2) 0deg) ")
+
+const skillsPro = document.querySelectorAll(".skills-pro");
+// setTimeout(() => {
+//     skillsPro.forEach(i => i.style.setProperty("background", "conic-gradient(var(--mainwb-color1)" +
+//         i.getAttribute("data-value") * 3.6 + "deg, var(--mainwb-color2) 0deg)"));
+// }, 5000)
+// skillsPro.forEach(i => i.style.setProperty("background", "conic-gradient(var(--mainwb-color1)" + i.getAttribute("data-value") * 3.6 + "deg, var(--mainwb-color2) 0deg)"));
+// document.querySelectorAll(".skills-per").forEach(i => i.innerHTML = "<p>" + i.parentElement.getAttribute("data-value") + "%</p>");
+
+// skillsPro.forEach(element => {
+//     for (i = 0; i <= element.getAttribute("data-value"){
+//         setTimeout(() => {
+//             console.log("aaa");
+//         }, 200)
+//     }
+// });
+skillsPro.forEach(element => {
+    const proMaxValue = element.getAttribute("data-value");
+    let proValue = 0;
+    const loadProValue = () => setTimeout(() => {
+        if (proValue != proMaxValue) {
+            proValue += 1;
+            element.style.setProperty("background", "conic-gradient(var(--mainwb-color1)" + proValue * 3.6 + "deg, var(--mainwb-color2) 0deg)");
+            loadProValue();
+        }
+    }, 20);
+    loadProValue();
+})
+
+document.querySelectorAll(".skills-per").forEach(element => {
+    const proMaxValue = element.parentElement.getAttribute("data-value");
+    let proValue = 0;
+    const loadPerValue = () => setTimeout(() => {
+        if (proValue != proMaxValue) {
+            proValue += 1;
+            element.innerHTML = "<p>" + proValue + "%</p>";
+            loadPerValue();
+        }
+    }, 20)
+    loadPerValue();
+})
