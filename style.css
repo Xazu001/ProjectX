@@ -213,8 +213,9 @@ body{
 font-size: 30rem;
 scale: 1.6 2;
 font-family: 'gatha';
-color: transparent;
+color: var(--mainwb-color4);
 -webkit-text-stroke: 5px var(--mainwb-color1);
+text-shadow: 0 10px 10px black;
 }
 
 .me-links{
@@ -275,6 +276,7 @@ margin-bottom: 1.4rem;
     background-color: #242424;
     border-radius: 48px;
     overflow: hidden;
+    box-shadow: 8px 13px 10px black;
 }
 
 .whyme-tiles{
@@ -379,6 +381,7 @@ padding-left: 48px;
     padding: 30px;
     background-color: #242424;
     position: relative;
+    box-shadow: -8px 13px 10px black;
 }
 
 .skills-pro{
