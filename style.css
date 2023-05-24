@@ -14,7 +14,8 @@
     font-size: 10px;
     --columns: 0;
     --rows: 0;
-    /* --mainwb-color1: rgba(255,0 ,50, 1); */
+    /* --mainwb-color1: rgba(36, 114, 114, 1); */
+    /* --mainwb-color1: rgba(170, 0 ,50, 1); */
     --mainwb-color1: rgba(0,75 ,255, 1);
     --mainwb-color2: #242424;
     --mainwb-color3: #1B1B1B;
@@ -30,10 +31,10 @@ nav{
     z-index: 1;
 }
 
-#nav-main{
+.nav-main{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
     padding: 0 48px;
     height: 90px;
     background-color: var(--mainwb-color4);
@@ -43,7 +44,7 @@ nav{
 }
 
 
-#nav-right ul li{
+.nav-right ul li{
 display: inline;
 }
 
@@ -51,14 +52,21 @@ a{
     text-decoration: none;
 }
 
-#nav-left a{
+.nav-left a{
     font-size: 88px;
     /* color: var(--mainwb-color1); */
     color: var(--mainwb-color4);
     -webkit-text-stroke:  1px var(--mainwb-color1);
+    display: flex;
+    align-items: center;
 }
 
-#nav-right a{
+.nav-right{
+    display: flex;
+    align-items: center;
+}
+
+.nav-right a{
     color: var(--mainwb-color5);
     /* text-transform: uppercase; */
     font-size: 2.2rem;
@@ -92,13 +100,13 @@ a{
     z-index: 2;
 }
 
-#topSection{
+.topSection{
     position: relative;
     overflow: hidden;
     height: 700px;
 }
 
-#topSectionBG{
+.topSectionBG{
     position: relative;
     left: 0;
     top: 0;
@@ -109,7 +117,7 @@ a{
     opacity: 0.4;
 }
 
-#topSectionMain{
+.topSectionMain{
     position: absolute;
     height: 100%;
     width: 100%;
@@ -125,8 +133,9 @@ a{
     -webkit-text-stroke: 4px var(--mainwb-color1);
 }
 
-#topSectionMain h1{
+.topSectionMain h1{
     scale: 1 1.9;
+    transition: .5s;
 }
 /* end of nav and top section */
 
@@ -138,24 +147,24 @@ html{
 
 body{
     background-color: var(--mainwb-color4);
-    color: white;
+    color: var(--mainwb-color5);
     font-family: 'gatha', sans-serif;
 }
 
 /* About me */
 
-#aboutme-main{
+.aboutme-main{
     padding: 200px 4% ;
     display: flex;
     overflow: hidden;
     color: var(--mainwb-color1);
 }
 
-#aboutme-left{
+.aboutme-left{
     max-width: 50%;
     color: var(--mainwb-color5);
 }
-#aboutme-left h3{
+.aboutme-left h3{
     font-size: 6rem;
     text-transform: uppercase;
     margin-bottom: 1.4rem;
@@ -163,11 +172,11 @@ body{
     color: transparent;
     -webkit-text-stroke: 2px var(--mainwb-color1);
 }
-#aboutme-left p{
+.aboutme-left p{
     font-size: 3.4rem;
 }
 
-#aboutme-right{
+.aboutme-right{
     display: flex;
     text-align: justify;
     writing-mode: vertical-lr;
@@ -177,13 +186,13 @@ body{
     -webkit-text-stroke: 2px var(--mainwb-color1);
 }
 
-#aboutme-right h2{
+.aboutme-right h2{
     font-size: 6rem;
     text-transform: uppercase;
     transition: 1s;
 }
 
-#whyme-left span{
+.whyme-left span{
     font-family: 'gatha';
     font-size: 7.5rem;
     color: transparent;   
@@ -191,7 +200,7 @@ body{
 }
 
 /* me */
-#me{
+.me{
     padding: 190px;
     position: relative;
 }
@@ -237,33 +246,33 @@ text-shadow: 0 10px 10px black;
 
 .box-icons a{
     font-size: 5.5rem;
-    color: white;
+    color: var(--mainwb-color5);
     margin-top: 30px;
 }
 
 
 /* why me */
-#whyme{
+.whyme{
     padding: 150px 4%;
     display: flex;
 }
 
-#whyme-left{
+.whyme-left{
     width: 33%;
-    color: white;
+    color: var(--mainwb-color5);
 }
 
-#whyme-left h3{
+.whyme-left h3{
 font-size: 6rem;
 text-transform: uppercase;
 margin-bottom: 1.4rem;
 }
 
-#whyme-left p{
+.whyme-left p{
     font-size: 3.4rem;
 }
 
-#whyme-right{
+.whyme-right{
     display: flex;
     gap: 30px;
     padding-left: 30px ;
@@ -342,7 +351,7 @@ overflow: hidden;
 }
 
 /* skills */
-#skills-main{
+.skills-main{
     display: flex;
     padding: 200px 4%;
 }
@@ -421,12 +430,125 @@ color: var(--mainwb-color5);
 }
 
 
-/* media */
-@media screen and (max-width:1820px){
-#whyme{
+
+/* road */
+.road{
+    padding: 150px 4%;
+}
+
+
+/* contact */
+.contact{
+    margin: 150px 0;
+    background-color: var(--mainwb-color1);
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'gatha';
+}
+
+.contact h3{
+    font-size: 5.5rem;
+    margin-bottom: 48px;
+}
+
+.textInput{
+    margin-bottom: 48px;
+    background: transparent;
+    border: none;
+    border-bottom:2px var(--mainwb-color2) solid ;
+    font-size: 2.2rem;
+    color: var(--mainwb-color5);
+    text-shadow: -3px 3px var(--mainwb-color2);
+    padding: 3px 10px;
+}
+
+
+.textInput::placeholder{
+    color: var(--mainwb-color5);
+    text-shadow: -3px 3px var(--mainwb-color2);
+}
+
+.textInput:focus{
+    border-bottom: 2px var(--mainwb-color2) solid;
+    outline: none;
+}
+
+.messageInput{
+    width: 30%;
+    /* height: 100px; */
+    overflow: hidden;
+    resize: none;
+    background: rgba(0, 0, 0, 0.2);
+    /* padding-top: 64px; */
+}
+
+.contactUpper{
+    width: 30%;
+    display: flex;
+}
+
+.contactBottom{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contactLeft{
+    width: 50%;
+    display: flex;
     flex-direction: column;
 }
-    #whyme-left{
+
+.messageInput::placeholder{
+    /* padding-top: 64px; */
+}
+
+.contactRight{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    text-align: center;
+    font-size: 3.5rem;
+    /* color: transparent; */
+    color: var(--mainwb-color2);
+    /* -webkit-text-stroke: 2px var(--mainwb-color2); */
+}
+
+.contactRight h3{
+    color: transparent;
+    font-size: 9rem;
+    -webkit-text-stroke: 2px var(--mainwb-color2);
+
+}
+
+.contactBottom button{
+padding: 7px 12px;
+background-color: rgba(0, 0, 0, 0.2);
+border: none;
+color: transparent;
+font-size: 3rem;
+-webkit-text-stroke: 1px black;
+cursor: pointer;
+border-radius: 24px;
+transition: .5s;
+}
+
+.contactBottom button:hover{
+background-color: rgba(0,0,0, 0.25);
+}
+
+/* media */
+@media screen and (max-width:1820px){
+.whyme{
+    flex-direction: column;
+}
+    .whyme-left{
     width: 100%;
     margin-bottom: 48px;
 }
@@ -437,14 +559,14 @@ color: var(--mainwb-color5);
 
 
 @media screen and (max-width:1200px){
-#whyme{
+.whyme{
     flex-direction: column;
 }
-#whyme-left{
+.whyme-left{
     margin-bottom: 48px;
     width: 100%;
 }
-#whyme-right{
+.whyme-right{
     display: flex;
     flex-direction: column;
     padding-left: 0;
@@ -458,7 +580,7 @@ color: var(--mainwb-color5);
     :root{
         font-size: 9px;
     }
-    #skills-main{
+    .skills-main{
         flex-direction: column;
     }
     .skills-left{
@@ -492,6 +614,7 @@ color: var(--mainwb-color5);
     right: 0px;
     margin: auto;
     z-index: 10;
+    transition: .5s;
 }
 
 .l1{
@@ -546,6 +669,7 @@ color: var(--mainwb-color5);
         75%{opacity: 0.5; transform: skewY(20deg);}
         100%{top: -100vh; opacity: 0; transform: skewY(20deg);}
       }
+
 
 .hide{
 opacity: 0;

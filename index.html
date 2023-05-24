@@ -15,23 +15,23 @@
   </head>
   <body>
     <nav>
-      <div id="nav-main">
-        <div id="nav-left">
+      <div class="nav-main">
+        <div class="nav-left">
           <a href="#aboutme">X</a>
         </div>
-        <div id="nav-right">
+        <div class="nav-right">
           <ul>
             <li><a href="#aboutme">about me</a></li>
             <li><a href="#skills">skills</a></li>
             <li><a href="#">road</a></li>
-            <li><a href="#" class="getInTouch">GET IN TOUCH</a></li>
+            <li><a href="#contact" class="getInTouch">GET IN TOUCH</a></li>
           </ul>
         </div>
       </div>
       <div class="lineUnderNavMain"><div class="lineUnderNav"></div></div>
     </nav>
-    <section id="topSection">
-      <div id="topSectionBG">
+    <section class="topSection">
+      <div class="topSectionBG">
         <div class="light l1"></div>
         <div class="light l2"></div>
         <div class="light l3"></div>
@@ -42,14 +42,14 @@
         <div class="light l8"></div>
         <div class="light l9"></div>
       </div>
-      <div id="topSectionMain">
+      <div class="topSectionMain">
         <h1 data-value="I MAKE THINGS">I MAKE THINGS</h1>
       </div>
     </section>
     <main>
-      <section id="aboutme">
-        <section id="aboutme-main">
-          <div id="aboutme-left">
+      <section id="aboutme" class="aboutme">
+        <section class="aboutme-main">
+          <div class="aboutme-left">
             <h3>who am i?</h3>
             <p>
               Hi! My name is Kacper, i'm 19 years old starting frontend
@@ -59,14 +59,14 @@
               some of the skills that I have mastered.
             </p>
           </div>
-          <div id="aboutme-right">
+          <div class="aboutme-right">
             <h2>
               developer!<br />
               front-end
             </h2>
           </div>
         </section>
-        <section id="me">
+        <section class="me">
           <div class="me-x">
             <h2>X</h2>
           </div>
@@ -83,15 +83,15 @@
             </div>
           </div>
         </section>
-        <section id="whyme">
-          <div id="whyme-left">
+        <section class="whyme">
+          <div class="whyme-left">
             <h3>why you should pick <span>me</span></h3>
             <p>
               There are some reasons. <br />
               Beacause I am...
             </p>
           </div>
-          <div id="whyme-right">
+          <div class="whyme-right">
             <div class="whyme-item">
               <div class="whyme-background hide">
                 <!-- <h5>Nigger</h5> -->
@@ -132,8 +132,8 @@
           </div>
         </section>
       </section>
-      <section id="skills">
-        <section id="skills-main">
+      <section id="skills" class="skills">
+        <section class="skills-main">
           <div class="skills-left">
             <div class="skills-item">
               <div class="skills-pro skillsProHide" data-value="80">
@@ -161,6 +161,46 @@
           </div>
         </section>
       </section>
+      <section id="road" class="road"></section>
+      <form action="">
+        <section id="contact" class="contact">
+          <h3>CONTACT ME</h3>
+          <div class="contactUpper">
+            <div class="contactLeft">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="textInput"
+                placeholder="your name"
+              />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="textInput"
+                placeholder="xyz@email.com"
+              />
+            </div>
+            <div class="contactRight">
+              <p>JOIN TEAM</p>
+              <h3>X</h3>
+            </div>
+          </div>
+          <div class="contactBottom">
+            <textarea
+              type="text"
+              name="message"
+              id="message"
+              class="messageInput textInput"
+              placeholder="your message"
+              rows="5"
+              columns="30"
+            ></textarea>
+            <button type="submit">SEND</button>
+          </div>
+        </section>
+      </form>
     </main>
 
     <script defer>
@@ -169,7 +209,7 @@
           {
             const letters = "XYZ";
             let intervalLetters = null;
-            const heroH1 = document.querySelector("#topSectionMain h1");
+            const heroH1 = document.querySelector(".topSectionMain h1");
             let iteration = 0;
             clearInterval(intervalLetters);
 

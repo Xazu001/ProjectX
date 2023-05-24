@@ -151,3 +151,70 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.skillsProHide');
 hiddenElements.forEach((el) => observer.observe(el));
+
+// head hover
+
+const topSectionHeader = document.querySelector(".topSectionMain h1");
+// let topSectionInterval1 = setInterval(() => {
+//     document.querySelectorAll(".light").forEach(i => i.style.setProperty("scale", "2"))
+// }, 500)
+// let topSectionInterval2 = setInterval(() => {
+//     document.querySelectorAll(".light").forEach(i => i.style.setProperty("scale", "1"))
+// }, 1000);
+
+let topSectionInterval1;
+let topSectionInterval2;
+
+let headerStretched = false;
+topSectionHeader.addEventListener("mouseover", () => {
+    topSectionHeader.style.setProperty("scale", "1 2.2");
+    headerStretched = true;
+    if (headerStretched == true) {
+        topSectionInterval1 = setInterval(() => {
+            document.querySelectorAll(".light").forEach(i => i.style.setProperty("scale", "2"))
+        }, 500)
+        topSectionInterval2 = setInterval(() => {
+            document.querySelectorAll(".light").forEach(i => i.style.setProperty("scale", "1"))
+        }, 1000);
+        console.log("aaaa");
+    }
+    console.log("mouse over");
+    // document.querySelectorAll(".light").forEach(i => i.style.setProperty("scale", "2"))
+})
+
+topSectionHeader.addEventListener("mouseout", () => {
+    topSectionHeader.style.setProperty("scale", "1 1.9");
+    document.querySelectorAll(".light").forEach(i => i.style.setProperty("scale", "1"))
+    clearInterval(topSectionInterval1);
+    clearInterval(topSectionInterval2);
+    headerStretched = false;
+    console.log("mouse out");
+})
+
+// send animation
+
+// const sendButton = document.querySelector(".contactBottom button");
+// let sendAnimationInterval;
+// let isSendInAnimation = false;
+
+
+// sendButton.addEventListener("mouseover", () => {
+//     let sendAnimationValue = 0;
+//     isSendInAnimation = true;
+//     if (isSendInAnimation == true) {
+//         sendAnimationInterval = setInterval(() => {
+//             sendAnimationValue += 1;
+//             sendButton.style.setProperty("background", "conic-gradient(var(--mainwb-color1)" + sendAnimationValue + "deg, var(--mainwb-color2) 0deg)")
+//             // if (sendAnimationValue == 360) {
+//             //     sendAnimationValue = 0;
+//             // }
+
+//         }, 2)
+//     }
+// })
+
+// sendButton.addEventListener("mouseout", () => {
+//     sendButton.style.setProperty("background", "conic-gradient(var(--mainwb-color1)" + 360 + "deg, var(--mainwb-color2) 0deg)")
+//     clearInterval(sendAnimationInterval);
+//     isSendInAnimation = false;
+// })
