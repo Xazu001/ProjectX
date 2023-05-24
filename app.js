@@ -83,30 +83,71 @@ createGrid();
 window.onresize = () => createGrid();
 
 // skills progress
-
 const skillsPro = document.querySelectorAll(".skills-pro");
-skillsPro.forEach(element => {
-    const proMaxValue = element.getAttribute("data-value");
-    let proValue = 0;
-    const loadProValue = () => setTimeout(() => {
-        if (proValue != proMaxValue) {
-            proValue += 1;
-            element.style.setProperty("background", "conic-gradient(var(--mainwb-color1)" + proValue * 3.6 + "deg, var(--mainwb-color2) 0deg)");
-            loadProValue();
+
+// skillsPro.forEach(element => {
+//     const proMaxValue = element.getAttribute("data-value");
+//     let proValue = 0;
+//     const loadProValue = () => setTimeout(() => {
+//         if (proValue != proMaxValue) {
+//             proValue += 1;
+//             element.style.setProperty("background", "conic-gradient(var(--mainwb-color1)" + proValue * 3.6 + "deg, var(--mainwb-color2) 0deg)");
+//             loadProValue();
+//         }
+//     }, 20);
+//     loadProValue(element.classList.contains("skillsProShow"));
+// })
+// document.querySelectorAll(".skills-per").forEach(element => {
+//     const proMaxValue = element.parentElement.getAttribute("data-value");
+//     let proValue = 0;
+//     const loadPerValue = () => setTimeout(() => {
+//         if (proValue != proMaxValue) {
+//             proValue += 1;
+//             element.innerHTML = "<p>" + proValue + "%</p>";
+//             loadPerValue();
+//         }
+//     }, 20)
+//     loadPerValue();
+// })
+
+//skills observer
+
+let seenSkills = false;
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting && !seenSkills) {
+            seenSkills = true;
+            entry.target.classList.add('skillsProShow');
+            entry.target.classList.remove("skillsProHide");
+            skillsPro.forEach(element => {
+                const proMaxValue = element.getAttribute("data-value");
+                let proValue = 0;
+                const loadProValue = () => setTimeout(() => {
+                    if (proValue != proMaxValue) {
+                        proValue += 1;
+                        element.style.setProperty("background", "conic-gradient(var(--mainwb-color1)" + proValue * 3.6 + "deg, var(--mainwb-color2) 0deg)");
+                        loadProValue();
+                    }
+                }, 20);
+                loadProValue(element.classList.contains("skillsProShow"));
+            })
+            document.querySelectorAll(".skills-per").forEach(element => {
+                const proMaxValue = element.parentElement.getAttribute("data-value");
+                let proValue = 0;
+                const loadPerValue = () => setTimeout(() => {
+                    if (proValue != proMaxValue) {
+                        proValue += 1;
+                        element.innerHTML = "<p>" + proValue + "%</p>";
+                        loadPerValue();
+                    }
+                }, 20)
+                loadPerValue();
+
+            })
         }
-    }, 20);
-    loadProValue();
+    })
 })
 
-document.querySelectorAll(".skills-per").forEach(element => {
-    const proMaxValue = element.parentElement.getAttribute("data-value");
-    let proValue = 0;
-    const loadPerValue = () => setTimeout(() => {
-        if (proValue != proMaxValue) {
-            proValue += 1;
-            element.innerHTML = "<p>" + proValue + "%</p>";
-            loadPerValue();
-        }
-    }, 20)
-    loadPerValue();
-})
+const hiddenElements = document.querySelectorAll('.skillsProHide');
+hiddenElements.forEach((el) => observer.observe(el));

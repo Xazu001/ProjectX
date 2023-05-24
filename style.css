@@ -458,6 +458,25 @@ color: var(--mainwb-color5);
     :root{
         font-size: 9px;
     }
+    #skills-main{
+        flex-direction: column;
+    }
+    .skills-left{
+        order: 2;
+    }
+    .skills-right{
+        order: 1;
+        margin-bottom: 48px;
+    }
+    .skills-left{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .skills-item{
+        width: auto !important;
+    }
 }
 /* others- put in other file*/
 .light {
