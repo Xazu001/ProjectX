@@ -239,7 +239,7 @@ document.querySelectorAll(".blueItem").forEach(i => i.addEventListener("click", 
 function onLoad() {
     const colour = JSON.parse(localStorage.getItem("mainwbColor"));
     if (colour) {
-        root.style.setProperty('--mainwb-color', colour);
+        root.style.setProperty('--mainwb-color1', colour);
     }
 }
 
