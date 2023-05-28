@@ -85,30 +85,6 @@ window.onresize = () => createGrid();
 // skills progress
 const skillsPro = document.querySelectorAll(".skills-pro");
 
-// skillsPro.forEach(element => {
-//     const proMaxValue = element.getAttribute("data-value");
-//     let proValue = 0;
-//     const loadProValue = () => setTimeout(() => {
-//         if (proValue != proMaxValue) {
-//             proValue += 1;
-//             element.style.setProperty("background", "conic-gradient(var(--mainwb-color1)" + proValue * 3.6 + "deg, var(--mainwb-color2) 0deg)");
-//             loadProValue();
-//         }
-//     }, 20);
-//     loadProValue(element.classList.contains("skillsProShow"));
-// })
-// document.querySelectorAll(".skills-per").forEach(element => {
-//     const proMaxValue = element.parentElement.getAttribute("data-value");
-//     let proValue = 0;
-//     const loadPerValue = () => setTimeout(() => {
-//         if (proValue != proMaxValue) {
-//             proValue += 1;
-//             element.innerHTML = "<p>" + proValue + "%</p>";
-//             loadPerValue();
-//         }
-//     }, 20)
-//     loadPerValue();
-// })
 
 //skills observer
 
@@ -155,12 +131,6 @@ hiddenElements.forEach((el) => observer.observe(el));
 // head hover
 
 const topSectionHeader = document.querySelector(".topSectionMain h1");
-// let topSectionInterval1 = setInterval(() => {
-//     document.querySelectorAll(".light").forEach(i => i.style.setProperty("scale", "2"))
-// }, 500)
-// let topSectionInterval2 = setInterval(() => {
-//     document.querySelectorAll(".light").forEach(i => i.style.setProperty("scale", "1"))
-// }, 1000);
 
 let topSectionInterval1;
 let topSectionInterval2;
@@ -172,11 +142,10 @@ topSectionHeader.addEventListener("mouseover", () => {
     if (headerStretched == true) {
         topSectionInterval1 = setInterval(() => {
             document.querySelectorAll(".light").forEach(i => i.style.setProperty("scale", "2"))
-        }, 500)
+        }, 400)
         topSectionInterval2 = setInterval(() => {
             document.querySelectorAll(".light").forEach(i => i.style.setProperty("scale", "1"))
-        }, 1000);
-        console.log("aaaa");
+        }, 800);
     }
     console.log("mouse over");
     // document.querySelectorAll(".light").forEach(i => i.style.setProperty("scale", "2"))
@@ -188,7 +157,6 @@ topSectionHeader.addEventListener("mouseout", () => {
     clearInterval(topSectionInterval1);
     clearInterval(topSectionInterval2);
     headerStretched = false;
-    console.log("mouse out");
 })
 
 // send animation
@@ -218,3 +186,111 @@ topSectionHeader.addEventListener("mouseout", () => {
 //     clearInterval(sendAnimationInterval);
 //     isSendInAnimation = false;
 // })
+
+//more click
+let moreMenuToggled = false;
+const moreMenuItemHeight = document.querySelector(".moreItem").clientHeight;
+document.querySelector(".nav-right ul li:nth-child(3)").addEventListener("click", () => {
+    if (!moreMenuToggled) {
+        document.querySelector(".moreBlock").style.setProperty("display", "flex");
+        // anime({
+        //     targets: document.querySelector(".moreBlockMain"),
+        //     height: moreMenuItemHeight * 3 + "px",
+        //     duration: 2000,
+        // })
+        setTimeout(() => {
+            document.querySelector(".moreBlockMain").style.setProperty("height", moreMenuItemHeight * 3 + "px");
+        }, 200)
+
+
+        moreMenuToggled = true;
+    }
+    else {
+        document.querySelector(".moreBlockMain").style.setProperty("height", "0");
+        // anime({
+        //     targets: document.querySelector(".moreBlockMain"),
+        //     height: "0px",
+        //     duration: 2000,
+        // })
+        setTimeout(() => {
+            document.querySelector(".moreBlock").style.setProperty("display", "none");
+        }, 900)
+
+        moreMenuToggled = false;
+    }
+})
+
+// colours change
+
+document.querySelectorAll(".redItem").forEach(i => i.addEventListener("click", redItem));
+document.querySelectorAll(".purpleItem").forEach(i => i.addEventListener("click", purpleItem));
+document.querySelectorAll(".blueItem").forEach(i => i.addEventListener("click", blueItem));
+
+function onLoad() {
+    const colour = JSON.parse(localStorage.getItem("mainwbColor"));
+    document.querySelector(":root").style.setProperty('--mainwb-color', colour);
+}
+
+onLoad();
+
+let mainwbColor = '';
+
+
+function redItem() {
+    console.log("red");
+    mainwbColor = "rgba(170, 0 ,50, 1)";
+    const root = document.querySelector(":root");
+    root.style.setProperty('--mainwb-color1', mainwbColor);
+    localStorage.setItem("mainwbColor", JSON.stringify(mainwbColor));
+}
+
+function purpleItem() {
+    const root = document.querySelector(":root");
+    mainwbColor = "rgba(100,20 ,255, 1)";
+    localStorage.setItem("mainwbColor", JSON.stringify(mainwbColor));
+    root.style.setProperty('--mainwb-color1', mainwbColor);
+}
+
+function blueItem() {
+    const root = document.querySelector(":root");
+    mainwbColor = 'rgba(0,75 ,255, 1)';
+    localStorage.setItem("mainwbColor", JSON.stringify(mainwbColor));
+    root.style.setProperty('--mainwb-color1', mainwbColor);
+}
+
+// nav show nav hide
+let isNavBarLocked = false;
+const nav = document.querySelector("nav");
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+    const scrollPosition = window.scrollY;
+
+    if (lastScrollY > window.scrollY) {
+        console.log("we are going up");
+        document.querySelector("nav").classList.add("navshow")
+        document.querySelector("nav").classList.remove("navhid");
+    }
+
+    if (scrollPosition > 800) {
+        if (lastScrollY < window.scrollY && !isNavBarLocked) {
+            console.log("we are going down");
+            document.querySelector("nav").style.setProperty("position", "fixed");
+            document.querySelector("nav").style.setProperty("display", "none");
+            setTimeout(() => {
+                document.querySelector("nav").style.setProperty("display", "block");
+            }, 100)
+            document.querySelector("nav").classList.add("navhid");
+            document.querySelector("nav").classList.remove("navshow");
+            document.querySelector(".nav-main").style.setProperty("background-color", "transparent");
+
+        }
+    }
+    if (scrollPosition < 700) {
+        document.querySelector("nav").style.setProperty("display", "block");
+        document.querySelector(".nav-main").style.setProperty("background-color", "var(--mainwb-color4)");
+        document.querySelector("nav").style.setProperty("position", "");
+    }
+
+    lastScrollY = window.scrollY;
+})

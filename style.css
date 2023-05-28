@@ -30,18 +30,31 @@
 
 /* nav and top section */
 nav{
-    z-index: 1;
+    z-index: 999;
+    transition: .8s;
+    /* position: fixed; */
+    width: 100%;
+}
+
+.navhid{
+transform: translateY(-100%);
+}
+
+.navshow{
+    transform: translateY(0%);
 }
 
 .nav-main{
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
     padding: 0 48px;
     height: 90px;
     background-color: var(--mainwb-color4);
     opacity: 1;
     font-family: 'gatha';
+    width: 100%;
+    height: 100%;
+    transition: 1s;
     
 }
 
@@ -75,6 +88,66 @@ a{
     margin: 12px;
 }
 
+.nav-right ul li:nth-child(3){
+    position: relative;
+}
+
+.moreBlock{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translate(-20%, 0);
+    z-index: 999;
+    padding-top: 35px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+
+.moreBlockMain{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--mainwb-color4);
+    overflow: hidden;
+    height: 0;
+    transition: 1s ease;
+}
+
+.moreItem{
+    padding: 15px 40px;
+    font-size: 2.2rem;
+}
+
+.moreItem:has(.coloursBox){
+    padding: 0;
+}
+
+.coloursBox{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+
+.coloursBox div{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+
+.redItem{
+    background-color: rgba(170, 0 ,50, 1);
+}
+
+.blueItem{
+    background-color: rgba(0,75 ,255, 1);
+}
+
+.purpleItem{
+    background-color:rgba(100,20 ,255, 1) ;
+}
+
 .getInTouch{
     border: 1px var(--mainwb-color5) solid;
     padding: 12px;
@@ -86,20 +159,6 @@ a{
 
 .getInTouch:hover{
     border: 1px solid var(--mainwb-color1);
-}
-
-.lineUnderNavMain{
-    display: flex;
-    justify-content: center;
-}
-
-.lineUnderNav{
-    width: 90%;
-    height: 3px;
-    background-color: #101010;
-    filter: blur(10px);
-    border-radius: 25%;
-    z-index: 2;
 }
 
 .topSection{
