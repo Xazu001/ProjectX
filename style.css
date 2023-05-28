@@ -14,9 +14,11 @@
     font-size: 10px;
     --columns: 0;
     --rows: 0;
+    --mainwb-color1: rgba(100,20 ,255, 1);
     /* --mainwb-color1: rgba(36, 114, 114, 1); */
     /* --mainwb-color1: rgba(170, 0 ,50, 1); */
-    --mainwb-color1: rgba(0,75 ,255, 1);
+    /* --mainwb-color1: rgba(0,75 ,255, 1); */
+    
     --mainwb-color2: #242424;
     --mainwb-color3: #1B1B1B;
     --mainwb-color4: #101010;
