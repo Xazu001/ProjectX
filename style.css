@@ -167,7 +167,7 @@ a{
     position: relative;
     overflow: hidden;
     height: 700px;
-    z-index: -10;
+    z-index: 99;
 }
 
 .topSectionBG{
@@ -191,7 +191,6 @@ a{
     align-items: center;
     color: transparent;
     font-size: 9rem;
-    z-index: 10;
     font-family: 'gatha';
     -webkit-text-stroke: 4px var(--mainwb-color1);
 }
