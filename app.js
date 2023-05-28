@@ -191,6 +191,14 @@ topSectionHeader.addEventListener("mouseout", () => {
 let moreMenuToggled = false;
 const moreMenuItemHeight = document.querySelector(".moreItem").clientHeight;
 document.querySelector(".nav-right ul li:nth-child(3)").addEventListener("click", () => {
+    // if (scrollPosition > 800 && !moreMenuToggled) {
+    //     document.querySelector(".moreBlock").style.setProperty("display", "flex");
+    //     setTimeout(() => {
+    //         document.querySelector(".moreBlockMain").style.setProperty("height", moreMenuItemHeight * 3 + "px");
+    //     }, 200)
+    //     document.querySelector(".moreBlockMain").style.setProperty("background-color", "transparent");
+    //     moreMenuToggled = true;
+    // }
     if (!moreMenuToggled) {
         document.querySelector(".moreBlock").style.setProperty("display", "flex");
         // anime({
@@ -222,74 +230,91 @@ document.querySelector(".nav-right ul li:nth-child(3)").addEventListener("click"
 
 // colours change
 
+const root = document.querySelector(":root");
+
 document.querySelectorAll(".redItem").forEach(i => i.addEventListener("click", redItem));
 document.querySelectorAll(".purpleItem").forEach(i => i.addEventListener("click", purpleItem));
 document.querySelectorAll(".blueItem").forEach(i => i.addEventListener("click", blueItem));
 
 function onLoad() {
     const colour = JSON.parse(localStorage.getItem("mainwbColor"));
-    document.querySelector(":root").style.setProperty('--mainwb-color', colour);
+    if (colour) {
+        root.style.setProperty('--mainwb-color', colour);
+    }
 }
 
 onLoad();
 
-let mainwbColor = '';
-
+let mainwbColor;
 
 function redItem() {
-    console.log("red");
-    mainwbColor = "rgba(170, 0 ,50, 1)";
-    const root = document.querySelector(":root");
+    mainwbColor = "rgba(170, 0, 50, 1)";
     root.style.setProperty('--mainwb-color1', mainwbColor);
     localStorage.setItem("mainwbColor", JSON.stringify(mainwbColor));
 }
 
 function purpleItem() {
-    const root = document.querySelector(":root");
-    mainwbColor = "rgba(100,20 ,255, 1)";
-    localStorage.setItem("mainwbColor", JSON.stringify(mainwbColor));
+    mainwbColor = "rgba(100, 20, 255, 1)";
     root.style.setProperty('--mainwb-color1', mainwbColor);
+    localStorage.setItem("mainwbColor", JSON.stringify(mainwbColor));
 }
 
 function blueItem() {
-    const root = document.querySelector(":root");
-    mainwbColor = 'rgba(0,75 ,255, 1)';
-    localStorage.setItem("mainwbColor", JSON.stringify(mainwbColor));
+    mainwbColor = "rgba(0, 75, 255, 1)";
     root.style.setProperty('--mainwb-color1', mainwbColor);
+    localStorage.setItem("mainwbColor", JSON.stringify(mainwbColor));
 }
 
 // nav show nav hide
 let isNavBarLocked = false;
 const nav = document.querySelector("nav");
 let lastScrollY = window.scrollY;
+let scrollPosition;
 
 window.addEventListener("scroll", () => {
-    const scrollPosition = window.scrollY;
+    scrollPosition = window.scrollY;
 
     if (lastScrollY > window.scrollY) {
         console.log("we are going up");
         document.querySelector("nav").classList.add("navshow")
         document.querySelector("nav").classList.remove("navhid");
     }
+    if (scrollPosition == 700) {
+        document.querySelector("nav").classList.add("navhid");
+        // document.querySelector("nav").style.setProperty("display", "block");
+        document.querySelector("nav").style.setProperty("position", "static");
 
-    if (scrollPosition > 800) {
-        if (lastScrollY < window.scrollY && !isNavBarLocked) {
+    }
+
+    if (scrollPosition > 720) {
+
+        if (lastScrollY < window.scrollY && !moreMenuToggled) {
             console.log("we are going down");
-            document.querySelector("nav").style.setProperty("position", "fixed");
-            document.querySelector("nav").style.setProperty("display", "none");
+            document.querySelector(".nav-main").style.setProperty("background-color", "transparent");
+
             setTimeout(() => {
                 document.querySelector("nav").style.setProperty("display", "block");
             }, 100)
-            document.querySelector("nav").classList.add("navhid");
-            document.querySelector("nav").classList.remove("navshow");
-            document.querySelector(".nav-main").style.setProperty("background-color", "transparent");
+            setTimeout(() => {
+                document.querySelector("nav").classList.add("navhid");
+                document.querySelector("nav").classList.remove("navshow");
+            }, 200)
+            document.querySelector("nav").style.setProperty("position", "fixed");
 
         }
     }
     if (scrollPosition < 700) {
         document.querySelector("nav").style.setProperty("display", "block");
         document.querySelector(".nav-main").style.setProperty("background-color", "var(--mainwb-color4)");
-        document.querySelector("nav").style.setProperty("position", "");
+    }
+    if (moreMenuToggled && scrollPosition > 700) {
+        document.querySelector(".nav-main").style.setProperty("background-color", "transparent");
+    }
+    if (scrollPosition == 0) {
+        document.querySelector("nav").style.setProperty("position", "static");
+    }
+    if (moreMenuToggled) {
+        document.querySelector("nav").style.setProperty("position", "fixed");
     }
 
     lastScrollY = window.scrollY;

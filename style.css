@@ -14,9 +14,9 @@
     font-size: 10px;
     --columns: 0;
     --rows: 0;
-    --mainwb-color1: rgba(100,20 ,255, 1);
+    /* --mainwb-color1: rgba(100,20 ,255, 1); */
     /* --mainwb-color1: rgba(36, 114, 114, 1); */
-    /* --mainwb-color1: rgba(170, 0 ,50, 1); */
+    --mainwb-color1: rgba(170, 0 ,50, 1);
     /* --mainwb-color1: rgba(0,75 ,255, 1); */
     
     --mainwb-color2: #242424;
@@ -112,11 +112,13 @@ a{
     overflow: hidden;
     height: 0;
     transition: 1s ease;
+    z-index: 9999;
 }
 
 .moreItem{
     padding: 15px 40px;
     font-size: 2.2rem;
+    z-index: 9999;
 }
 
 .moreItem:has(.coloursBox){
@@ -165,13 +167,13 @@ a{
     position: relative;
     overflow: hidden;
     height: 700px;
+    z-index: -10;
 }
 
 .topSectionBG{
     position: relative;
     left: 0;
     top: 0;
-    z-index: 3;
     height: 100%;
     width: 100%;
     background-color: #242424;
