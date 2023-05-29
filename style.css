@@ -29,19 +29,24 @@
 
 
 /* nav and top section */
-nav{
-    z-index: 999;
-    transition: .8s;
-    /* position: fixed; */
+.navFixed{
+    position: fixed;
     width: 100%;
+    transition: .8s;
+    z-index: 9999;
+}
+
+.navNormal{
+    width: 100%;
+    z-index: 9999;
 }
 
 .navhid{
-transform: translateY(-100%);
+transform: translateY(-200%);
 }
 
 .navshow{
-    transform: translateY(0%);
+    transform: translateY(-100%);
 }
 
 .nav-main{
@@ -98,11 +103,11 @@ a{
     top: 100%;
     left: 0;
     transform: translate(-20%, 0);
-    z-index: 999;
     padding-top: 35px;
     display: flex;
     justify-content: start;
     align-items: start;
+    z-index: 9999;
 }
 
 .moreBlockMain{
@@ -112,13 +117,11 @@ a{
     overflow: hidden;
     height: 0;
     transition: 1s ease;
-    z-index: 9999;
 }
 
 .moreItem{
     padding: 15px 40px;
     font-size: 2.2rem;
-    z-index: 9999;
 }
 
 .moreItem:has(.coloursBox){
@@ -167,7 +170,6 @@ a{
     position: relative;
     overflow: hidden;
     height: 700px;
-    z-index: 99;
 }
 
 .topSectionBG{
@@ -182,17 +184,19 @@ a{
 
 .topSectionMain{
     position: absolute;
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
-    left: 0;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    left: 50%;
+    top: 50%;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    transform: translate(-25%,-50%);
     color: transparent;
     font-size: 9rem;
     font-family: 'gatha';
     -webkit-text-stroke: 4px var(--mainwb-color1);
+    z-index: 10;
 }
 
 .topSectionMain h1{
@@ -675,7 +679,6 @@ background-color: rgba(0,0,0, 0.25);
     left: 0px;
     right: 0px;
     margin: auto;
-    z-index: 10;
     transition: .5s;
 }
 

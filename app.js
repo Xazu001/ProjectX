@@ -190,43 +190,26 @@ topSectionHeader.addEventListener("mouseout", () => {
 //more click
 let moreMenuToggled = false;
 const moreMenuItemHeight = document.querySelector(".moreItem").clientHeight;
-document.querySelector(".nav-right ul li:nth-child(3)").addEventListener("click", () => {
-    // if (scrollPosition > 800 && !moreMenuToggled) {
-    //     document.querySelector(".moreBlock").style.setProperty("display", "flex");
-    //     setTimeout(() => {
-    //         document.querySelector(".moreBlockMain").style.setProperty("height", moreMenuItemHeight * 3 + "px");
-    //     }, 200)
-    //     document.querySelector(".moreBlockMain").style.setProperty("background-color", "transparent");
-    //     moreMenuToggled = true;
-    // }
+document.querySelectorAll(".nav-right ul li:nth-child(3)").forEach(e => e.addEventListener("click", () => {
     if (!moreMenuToggled) {
-        document.querySelector(".moreBlock").style.setProperty("display", "flex");
-        // anime({
-        //     targets: document.querySelector(".moreBlockMain"),
-        //     height: moreMenuItemHeight * 3 + "px",
-        //     duration: 2000,
-        // })
+        e.querySelector(".moreBlock").style.setProperty("display", "block");
         setTimeout(() => {
-            document.querySelector(".moreBlockMain").style.setProperty("height", moreMenuItemHeight * 3 + "px");
+            e.querySelector(".moreBlockMain").style.setProperty("height", moreMenuItemHeight * 3 + "px")
         }, 200)
 
 
         moreMenuToggled = true;
     }
     else {
-        document.querySelector(".moreBlockMain").style.setProperty("height", "0");
-        // anime({
-        //     targets: document.querySelector(".moreBlockMain"),
-        //     height: "0px",
-        //     duration: 2000,
-        // })
+
+        e.querySelector(".moreBlockMain").style.setProperty("height", "0px")
         setTimeout(() => {
-            document.querySelector(".moreBlock").style.setProperty("display", "none");
+            e.querySelector(".moreBlock").style.setProperty("display", "none");
         }, 900)
 
         moreMenuToggled = false;
     }
-})
+}))
 
 // colours change
 
@@ -270,52 +253,47 @@ let isNavBarLocked = false;
 const nav = document.querySelector("nav");
 let lastScrollY = window.scrollY;
 let scrollPosition;
+let navShouldBeShown = false;
+let navInsideTop;
 
 window.addEventListener("scroll", () => {
     scrollPosition = window.scrollY;
-
-    if (lastScrollY > window.scrollY) {
-        console.log("we are going up");
-        document.querySelector("nav").classList.add("navshow")
-        document.querySelector("nav").classList.remove("navhid");
-    }
-    if (scrollPosition == 700) {
-        document.querySelector("nav").classList.add("navhid");
-        // document.querySelector("nav").style.setProperty("display", "block");
-        document.querySelector("nav").style.setProperty("position", "static");
-
-    }
-
-    if (scrollPosition > 720) {
-
-        if (lastScrollY < window.scrollY && !moreMenuToggled) {
-            console.log("we are going down");
-            document.querySelector(".nav-main").style.setProperty("background-color", "transparent");
-
-            setTimeout(() => {
-                document.querySelector("nav").style.setProperty("display", "block");
-            }, 100)
-            setTimeout(() => {
-                document.querySelector("nav").classList.add("navhid");
-                document.querySelector("nav").classList.remove("navshow");
-            }, 200)
-            document.querySelector("nav").style.setProperty("position", "fixed");
-
-        }
-    }
     if (scrollPosition < 700) {
-        document.querySelector("nav").style.setProperty("display", "block");
-        document.querySelector(".nav-main").style.setProperty("background-color", "var(--mainwb-color4)");
+        navShouldBeShown = false;
+        navInsideTop = true;
     }
-    if (moreMenuToggled && scrollPosition > 700) {
-        document.querySelector(".nav-main").style.setProperty("background-color", "transparent");
+    if (scrollPosition > 700) {
+        navShouldBeShown = true;
+        navInsideTop = false;
     }
-    if (scrollPosition == 0) {
-        document.querySelector("nav").style.setProperty("position", "static");
+    if (lastScrollY > window.scrollY && navShouldBeShown && !navInsideTop) {
+        console.log("we are going up")
+        document.querySelector(".navFixed").classList.add("navshow")
+        document.querySelector(".navFixed").classList.remove("navhid");
     }
-    if (moreMenuToggled) {
-        document.querySelector("nav").style.setProperty("position", "fixed");
+    if (navInsideTop && !moreMenuToggled) {
+        document.querySelector(".navFixed").classList.add("navhid")
+        document.querySelector(".navFixed").classList.remove("navshow");
     }
+
+    if (lastScrollY < window.scrollY && navShouldBeShown && !moreMenuToggled) {
+        console.log("we are going down")
+        document.querySelector(".navFixed").classList.add("navhid")
+        document.querySelector(".navFixed").classList.remove("navshow");
+    }
+    if (navInsideTop) {
+        document.querySelector(".navFixed .moreBlock").style.setProperty("height", "0px");
+        setTimeout(() => {
+            document.querySelector(".navFixed .moreBlock").style.setProperty("display", "none");
+        }, 20)
+        document.querySelector(".navNormal .moreBlock").style.setProperty("height", "0px");
+        setTimeout(() => {
+            document.querySelector(".navNormal .moreBlock").style.setProperty("display", "none");
+        }, 20)
+
+        moreMenuToggled = false;
+    }
+
 
     lastScrollY = window.scrollY;
 })
