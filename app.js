@@ -192,20 +192,12 @@ let moreMenuToggled = false;
 const moreMenuItemHeight = document.querySelector(".moreItem").clientHeight;
 document.querySelectorAll(".nav-right ul li:nth-child(3)").forEach(e => e.addEventListener("click", () => {
     if (!moreMenuToggled) {
-        e.querySelector(".moreBlock").style.setProperty("display", "block");
-        setTimeout(() => {
-            e.querySelector(".moreBlockMain").style.setProperty("height", moreMenuItemHeight * 3 + "px")
-        }, 200)
-
+        e.querySelector(".moreBlockMain").style.setProperty("height", moreMenuItemHeight * 3 + "px")
 
         moreMenuToggled = true;
     }
-    else {
-
+    else if (moreMenuToggled) {
         e.querySelector(".moreBlockMain").style.setProperty("height", "0px")
-        setTimeout(() => {
-            e.querySelector(".moreBlock").style.setProperty("display", "none");
-        }, 900)
 
         moreMenuToggled = false;
     }
@@ -253,47 +245,32 @@ let isNavBarLocked = false;
 const nav = document.querySelector("nav");
 let lastScrollY = window.scrollY;
 let scrollPosition;
-let navShouldBeShown = false;
-let navInsideTop;
 
 window.addEventListener("scroll", () => {
     scrollPosition = window.scrollY;
-    if (scrollPosition < 700) {
-        navShouldBeShown = false;
-        navInsideTop = true;
-    }
-    if (scrollPosition > 700) {
-        navShouldBeShown = true;
-        navInsideTop = false;
-    }
-    if (lastScrollY > window.scrollY && navShouldBeShown && !navInsideTop) {
+    if (lastScrollY > window.scrollY) {
         console.log("we are going up")
-        document.querySelector(".navFixed").classList.add("navshow")
-        document.querySelector(".navFixed").classList.remove("navhid");
+        document.querySelector("nav").classList.add("navshow")
+        document.querySelector("nav").classList.remove("navhid");
     }
-    if (navInsideTop && !moreMenuToggled) {
-        document.querySelector(".navFixed").classList.add("navhid")
-        document.querySelector(".navFixed").classList.remove("navshow");
-    }
-
-    if (lastScrollY < window.scrollY && navShouldBeShown && !moreMenuToggled) {
+    if (lastScrollY < window.scrollY && !moreMenuToggled) {
         console.log("we are going down")
-        document.querySelector(".navFixed").classList.add("navhid")
-        document.querySelector(".navFixed").classList.remove("navshow");
+        document.querySelector("nav").classList.add("navhid")
+        document.querySelector("nav").classList.remove("navshow");
     }
-    if (navInsideTop) {
-        document.querySelector(".navFixed .moreBlock").style.setProperty("height", "0px");
-        setTimeout(() => {
-            document.querySelector(".navFixed .moreBlock").style.setProperty("display", "none");
-        }, 20)
-        document.querySelector(".navNormal .moreBlock").style.setProperty("height", "0px");
-        setTimeout(() => {
-            document.querySelector(".navNormal .moreBlock").style.setProperty("display", "none");
-        }, 20)
-
-        moreMenuToggled = false;
-    }
-
-
     lastScrollY = window.scrollY;
 })
+
+// road 
+let loadingBlockProgress = 0;
+const loadingBlock = document.querySelector(".insideLoadingBlock");
+setInterval(() => {
+    if (loadingBlockProgress == 100) {
+        loadingBlockProgress = 0
+
+    } else {
+        loadingBlockProgress += 1;
+        loadingBlock.style.width = loadingBlockProgress + "%";
+    }
+}, 120)
+

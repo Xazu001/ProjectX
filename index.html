@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>X is creating awesome...</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -14,37 +14,7 @@
     ></script>
   </head>
   <body>
-    <nav class="navNormal">
-      <div class="nav-main">
-        <div class="nav-left">
-          <a href="#aboutme">X</a>
-        </div>
-        <div class="nav-right">
-          <ul>
-            <li><a href="#aboutme">about me</a></li>
-            <li><a href="#skills">skills</a></li>
-            <li>
-              <a style="cursor: pointer">more</a>
-              <div class="moreBlock">
-                <div class="moreBlockMain">
-                  <div class="moreItem">more</div>
-                  <div class="moreItem">more</div>
-                  <div class="moreItem">
-                    <div class="coloursBox">
-                      <div class="blueItem"></div>
-                      <div class="redItem"></div>
-                      <div class="purpleItem"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li><a href="#contact" class="getInTouch">GET IN TOUCH</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <nav class="navFixed navhid">
+    <nav class="navshow">
       <div class="nav-main">
         <div class="nav-left">
           <a href="#aboutme">X</a>
@@ -138,7 +108,6 @@
           <div class="whyme-right">
             <div class="whyme-item">
               <div class="whyme-background hide">
-                <!-- <h5>Nigger</h5> -->
                 <p>
                   I consider myself a very communicative person. My advantage is
                   that I can get along with everyone. I am always able to reach
@@ -150,7 +119,6 @@
             </div>
             <div class="whyme-item">
               <div class="whyme-background hide">
-                <!-- <h5>Nigger</h5> -->
                 <p>
                   I can always respond positively to customer questions and
                   needs. I make sure that the customer is satisfied with my
@@ -162,14 +130,12 @@
             </div>
             <div class="whyme-item">
               <div class="whyme-background hide">
-                <!-- <h5>Nigger</h5> -->
                 <p>
                   I am full of determination and perseverance in pursuing my
                   goals. I don't like giving up. I do my best when fulfilling my
                   duties related to my passion and work.
                 </p>
               </div>
-              <!-- <div class="whyme-curtain"></div> -->
               <div class="whyme-tiles"></div>
               <div class="whyme-text"><h4>persistent</h4></div>
             </div>
@@ -202,10 +168,29 @@
 
           <div class="skills-right">
             <h3><span>MY </span>SKILLS</h3>
+            <p>This is how i would rate my skills ;p</p>
           </div>
         </section>
       </section>
-      <section id="road" class="road"></section>
+      <section id="road" class="road">
+        <div class="loadingBlockBox">
+          <div class="loadingBlockItem">
+            <div class="loadingBlock">
+              <div class="insideLoadingBlock"></div>
+            </div>
+            <svg>
+                <path d="M18.5985,6.4211V41.5789L5.5,37.8849"/>
+                <path d="M42.5,6.81H27.3681V25.7253l12.5526-1.6335L38.889,38.106l-12.99,3.4729"/>
+              </svg>
+              <!-- <svg>
+                <path d="M153.821,358.226L0,274.337v-46.463l153.821-83.414v54.574L46.636,250.523l107.185,53.431C153.821,303.954,153.821,358.226,153.821,358.226z"/>
+                <path d="M180.094,387.584L282.103,115.08h32.227L212.084,387.584H180.094z"/>
+                <path d="M348.843,358.226v-54.272l107.164-52.999l-107.164-52.59v-53.927l153.821,83.522v46.183L348.843,358.226z"/>
+              </svg> -->
+            </div>
+          </div>
+        </div>
+      </section>
       <form action="">
         <section id="contact" class="contact">
           <h3>CONTACT ME</h3>
@@ -274,7 +259,7 @@
               }
 
               iteration += 1 / 3;
-            }, 40);
+            }, 25);
           }
         }
       }
