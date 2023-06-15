@@ -298,7 +298,7 @@ animation: infinite 1s alternate bloom;
 .me-links{
     position: absolute;
     left: 0;
-    top: 25%;
+    top: 27%;
     height: 100%;
     width: 100%;
     justify-content: center;
@@ -312,17 +312,47 @@ animation: infinite 1s alternate bloom;
     width: 60px;
 }
 
+.blobFirst{
+   height: 75px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mainwb-color1);
+    animation: blobAnimation 8s infinite alternate-reverse;
+    overflow: hidden;
+}
+
+.blobFirst:nth-child(2){
+    animation: blobAnimation 12s infinite reverse;
+    margin-top: 30px;
+}
+
+.blobSecond{
+    height: 65px;
+    width: 65px;
+    background-color: var(--mainwb-color3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: blobAnimation 10s infinite alternate-reverse;
+}
+
+.blobSecond:nth-child(2){
+    animation: blobAnimation 7s infinite alternate-reverse;
+}
+
 .box-icons a{
     font-size: 5.5rem;
     color: var(--mainwb-color5);
     margin-top: 30px;
     transition: 0.6s;
+    transform: translateY(-10px);
 }
 
 .box-icons a:hover{
     color: var(--mainwb-color1);
     opacity: 0.9;
-    transform: translateY(-8%);
     
 }
 
@@ -800,6 +830,25 @@ background-color: rgba(0,0,0, 0.25);
             opacity: 1;
         }
       }
+
+    @keyframes blobAnimation {
+        0%{
+            border-radius: 20% 70% 70% 30% / 30% 60% 40% 70%;
+        }
+        25%{
+            border-radius: 22% 78% 27% 73% / 57% 98% 2% 43%;
+        }
+        50%{
+            border-radius:88% 12% 89% 11% / 59% 60% 40% 41%  ;
+        }
+        75%{
+            border-radius: 48% 52% 62% 38% / 59% 25% 75% 41% ;
+        }
+        100%{
+            border-radius: 20% 70% 70% 30% / 30% 60% 40% 70% ;
+        }
+        
+    }
 
 .hide{
 opacity: 0;
