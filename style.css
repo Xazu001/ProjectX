@@ -29,9 +29,6 @@
 
 
 /* nav and top section */
-.topSectionFix{
-    height: 108px;
-}
 
 nav{
     position: fixed;
@@ -309,7 +306,6 @@ animation: infinite 1s alternate bloom;
     display: flex;
     flex-direction: column;
     margin-left: 15%;
-    width: 60px;
 }
 
 .blobFirst{
@@ -324,7 +320,7 @@ animation: infinite 1s alternate bloom;
 }
 
 .blobFirst:nth-child(2){
-    animation: blobAnimation 12s infinite reverse;
+    animation: blobAnimation2 12s infinite reverse;
     margin-top: 30px;
 }
 
@@ -500,7 +496,7 @@ padding-left: 48px;
     justify-content: center;
     align-items: center;
     width: calc(100% / 3);
-    padding: 30px;
+    padding: 40px;
     background-color: #242424;
     position: relative;
     box-shadow: -8px 13px 10px black;
@@ -696,6 +692,16 @@ transition: .5s;
 background-color: rgba(0,0,0, 0.25);
 }
 
+
+/* footer */
+footer{
+    padding: 100px 4%;
+    background-color: rgb(10, 10, 10);
+    display: flex;
+    flex-direction: row;
+}
+
+
 /* media */
 @media screen and (max-width:1820px){
 .whyme{
@@ -731,7 +737,16 @@ background-color: rgba(0,0,0, 0.25);
 
 @media screen and (max-width:992px){
     :root{
-        font-size: 9px;
+        font-size: 8px;
+    }
+    .nav-right{
+        display: none;
+    }
+    .topSectionMain{
+        display: none;
+    }
+    .nav-main{
+        padding: 0 20px;
     }
     .skills-main{
         flex-direction: column;
@@ -742,6 +757,7 @@ background-color: rgba(0,0,0, 0.25);
     .skills-right{
         order: 1;
         margin-bottom: 48px;
+        padding-left: 0;
     }
     .skills-left{
         flex-direction: column;
@@ -750,8 +766,56 @@ background-color: rgba(0,0,0, 0.25);
         width: 100%;
     }
     .skills-item{
-        width: auto !important;
+        width: 100%
     }
+    .aboutme-main{
+        flex-direction: column;
+        padding: 80px 4%;
+    }
+    .aboutme-left{
+        max-width: 100%;
+    }
+    .aboutme-right{
+        writing-mode: horizontal-tb;
+        padding-left: 0;
+        padding-top: 24px;
+    }
+    .me-links{
+        position: static;
+    }
+    .box-icons{
+        margin-left: 0;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 54px;
+        gap: 20px;
+    }
+    .blobFirst:nth-child(2){
+        margin-top: 0;
+    }
+    .whyme{
+        padding: 50px 4%;
+    }
+    .contactRight{
+        order: 1;
+        width: 100%;
+    }
+    .contactLeft{
+        order: 2;
+        width: 100%;
+    }
+    .contactUpper{
+        width: 100%;
+        flex-direction: column;
+    }
+    .contactBottom, .contactUpper{
+        padding: 0 15px;
+    }
+    .messageInput{
+       width: 100%;
+    }
+    
 }
 /* others- put in other file*/
 .light {
@@ -848,6 +912,24 @@ background-color: rgba(0,0,0, 0.25);
             border-radius: 20% 70% 70% 30% / 30% 60% 40% 70% ;
         }
         
+    }
+    
+    @keyframes blobAnimation2 {
+        0%{
+            border-radius:88% 12% 89% 11% / 59% 60% 40% 41%  ;
+        }
+        25%{
+            border-radius: 20% 70% 70% 30% / 30% 60% 40% 70%;
+        }
+        50%{
+            border-radius: 22% 78% 27% 73% / 57% 98% 2% 43%;
+        }
+        75%{
+            border-radius: 20% 70% 70% 30% / 30% 60% 40% 70% ;  
+        }
+        100%{
+            border-radius: 48% 52% 62% 38% / 59% 25% 75% 41% ;
+        }
     }
 
 .hide{
