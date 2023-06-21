@@ -259,7 +259,7 @@ document.querySelector(".butgerBox").addEventListener("click", () => {
             targets: butgerMenuMain,
             height: "270vh",
             width: "300vw",
-            duration: 1500,
+            duration: 800,
             easing: 'linear',
             complete: () => {
                 butgerMenuToggled = true;
@@ -275,7 +275,7 @@ document.querySelector(".butgerBox").addEventListener("click", () => {
             targets: butgerMenuMain,
             height: "0vh",
             width: "0vw",
-            duration: 1500,
+            duration: 800,
             easing: 'linear',
             complete: () => {
                 butgerMenuBlock.classList.toggle("butgerMenuActive");
@@ -285,5 +285,23 @@ document.querySelector(".butgerBox").addEventListener("click", () => {
             },
         })
     }
-    else { }
 })
+
+document.querySelectorAll(".butgerMenuMain a").forEach(el => el.addEventListener("click", () => {
+    if (butgerMenuToggled && isAnimationCompleted) {
+        isAnimationCompleted = false;
+        anime({
+            targets: butgerMenuMain,
+            height: "0vh",
+            width: "0vw",
+            duration: 800,
+            easing: 'linear',
+            complete: () => {
+                butgerMenuBlock.classList.toggle("butgerMenuActive");
+                butgerMenuToggled = false;
+                console.log("ended");
+                isAnimationCompleted = true;
+            },
+        })
+    }
+}))

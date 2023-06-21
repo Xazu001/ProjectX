@@ -1029,6 +1029,29 @@ opacity: 0;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     /* transition: 3s; */
+    overflow: hidden;
+}
+
+.butgerMenuLinks{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    padding-top: 200px;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.butgerMenuMain a{
+    font-size: 7rem;
+    color: transparent;
+    text-transform: uppercase;
+    text-decoration: none;
+    -webkit-text-stroke: 2px var(--mainwb-color1);
 }
 
 .nav-main{
