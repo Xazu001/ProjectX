@@ -159,34 +159,6 @@ topSectionHeader.addEventListener("mouseout", () => {
     headerStretched = false;
 })
 
-// send animation
-
-// const sendButton = document.querySelector(".contactBottom button");
-// let sendAnimationInterval;
-// let isSendInAnimation = false;
-
-
-// sendButton.addEventListener("mouseover", () => {
-//     let sendAnimationValue = 0;
-//     isSendInAnimation = true;
-//     if (isSendInAnimation == true) {
-//         sendAnimationInterval = setInterval(() => {
-//             sendAnimationValue += 1;
-//             sendButton.style.setProperty("background", "conic-gradient(var(--mainwb-color1)" + sendAnimationValue + "deg, var(--mainwb-color2) 0deg)")
-//             // if (sendAnimationValue == 360) {
-//             //     sendAnimationValue = 0;
-//             // }
-
-//         }, 2)
-//     }
-// })
-
-// sendButton.addEventListener("mouseout", () => {
-//     sendButton.style.setProperty("background", "conic-gradient(var(--mainwb-color1)" + 360 + "deg, var(--mainwb-color2) 0deg)")
-//     clearInterval(sendAnimationInterval);
-//     isSendInAnimation = false;
-// })
-
 //more click
 let moreMenuToggled = false;
 const moreMenuItemHeight = document.querySelector(".moreItem").clientHeight;
@@ -285,9 +257,10 @@ document.querySelector(".butgerBox").addEventListener("click", () => {
         isAnimationCompleted = false;
         anime({
             targets: butgerMenuMain,
-            height: "300vh",
+            height: "270vh",
             width: "300vw",
-            duration: 1000,
+            duration: 1500,
+            easing: 'linear',
             complete: () => {
                 butgerMenuToggled = true;
                 isAnimationCompleted = true;
@@ -302,7 +275,8 @@ document.querySelector(".butgerBox").addEventListener("click", () => {
             targets: butgerMenuMain,
             height: "0vh",
             width: "0vw",
-            duration: 1000,
+            duration: 1500,
+            easing: 'linear',
             complete: () => {
                 butgerMenuBlock.classList.toggle("butgerMenuActive");
                 butgerMenuToggled = false;
