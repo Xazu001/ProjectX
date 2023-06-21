@@ -253,7 +253,7 @@ window.addEventListener("scroll", () => {
         document.querySelector("nav").classList.add("navshow")
         document.querySelector("nav").classList.remove("navhid");
     }
-    if (lastScrollY < window.scrollY && !moreMenuToggled) {
+    if (lastScrollY < window.scrollY && !moreMenuToggled && !butgerMenuToggled) {
         console.log("we are going down")
         document.querySelector("nav").classList.add("navhid")
         document.querySelector("nav").classList.remove("navshow");
@@ -274,3 +274,42 @@ setInterval(() => {
     }
 }, 120)
 
+// butgerMenu
+let butgerMenuToggled = false;
+const butgerMenuBlock = document.querySelector(".butgerMenuBlock");
+const butgerMenuMain = document.querySelector(".butgerMenuMain");
+let isAnimationCompleted = true;
+document.querySelector(".butgerBox").addEventListener("click", () => {
+    if (!butgerMenuToggled && isAnimationCompleted) {
+        butgerMenuBlock.classList.toggle("butgerMenuActive");
+        isAnimationCompleted = false;
+        anime({
+            targets: butgerMenuMain,
+            height: "300vh",
+            width: "300vw",
+            duration: 1000,
+            complete: () => {
+                butgerMenuToggled = true;
+                isAnimationCompleted = true;
+            },
+        })
+
+
+    }
+    if (butgerMenuToggled && isAnimationCompleted) {
+        isAnimationCompleted = false;
+        anime({
+            targets: butgerMenuMain,
+            height: "0vh",
+            width: "0vw",
+            duration: 1000,
+            complete: () => {
+                butgerMenuBlock.classList.toggle("butgerMenuActive");
+                butgerMenuToggled = false;
+                console.log("ended");
+                isAnimationCompleted = true;
+            },
+        })
+    }
+    else { }
+})
